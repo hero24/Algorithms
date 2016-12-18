@@ -4,7 +4,6 @@
 
 def merge_(lst_a,lst_b):
     ' merging function '
-    print(lst_a,lst_b)
     result = []
     right = 0
     left = 0
