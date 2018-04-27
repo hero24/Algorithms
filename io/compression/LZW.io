@@ -24,7 +24,7 @@ LZW compress := method(uncomp,
           w = wc,
           result append(dict at(w))
           dict atPut(wc, dict_size)
-		  dict_size = dict_size + 1
+          dict_size = dict_size + 1
           w = c
        )
     )
