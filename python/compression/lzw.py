@@ -23,7 +23,8 @@ class LZW:
         if w:
             result.append(hashmap[w])
         return result
-
+    
+    @staticmethod
     def decompress(compressed):
         dict_size = 256
         hashmap = {i:chr(i) for i in range(dict_size+1)}
