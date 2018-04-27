@@ -21,7 +21,8 @@ class LZW:
         if w:
             result.append(hashmap[w])
         return result
-
+    
+    @staticmethod
     def decompress(compressed):
         hashmap = {i:chr(i) for i in range(256)}
         w = chr(compressed[0])
