@@ -37,5 +37,6 @@ if __name__ == "__main__":
       packages=packs,
             ext_modules=[Extension("hero24/algorithms/capi/rabin_karp", ["capi/rk.c"]),
               Extension("hero24/algorithms/capi/boyer_moore", ["capi/bm.c"]),
-              Extension("hero24/algorithms/capi/knuth_morris_pratt", ["capi/kmp.c"])]
+              Extension("hero24/algorithms/capi/knuth_morris_pratt", ["capi/kmp.c"]),
+              Extension("hero24/algorithms/capi/hashing", ["capi/hashing.c"])]
       )
