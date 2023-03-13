@@ -10,7 +10,7 @@ PyObject* SM2(PyObject* self, PyObject* args)
 	hash = sum_modulo_2(str);
 	if(hash < 0)
 		return Py_False;
-	return Py_BuildValue("i", index);
+	return Py_BuildValue("i", hash);
 }
 
 PyObject* SM2RS(PyObject* self, PyObject* args)
@@ -22,7 +22,7 @@ PyObject* SM2RS(PyObject* self, PyObject* args)
 	hash = sum_modulo_2_rshift(str);
 	if(hash < 0)
 		return Py_False;
-	return Py_BuildValue("i", index);
+	return Py_BuildValue("i", hash);
 }
 
 PyObject* RMAX(PyObject* self, PyObject* args)
@@ -35,7 +35,7 @@ PyObject* RMAX(PyObject* self, PyObject* args)
 	hash = Rmax(str, rmax);
 	if(hash < 0)
 		return Py_False;
-	return Py_BuildValue("i", index);
+	return Py_BuildValue("i", hash);
 }
 
 PyObject* DJB2(PyObject* self, PyObject* args)
@@ -47,7 +47,7 @@ PyObject* DJB2(PyObject* self, PyObject* args)
 	hash = djb2(str);
 	if(hash < 0)
 		return Py_False;
-	return Py_BuildValue("K", index);
+	return Py_BuildValue("K", hash);
 }
 
 PyObject* SDBM(PyObject* self, PyObject* args)
@@ -59,7 +59,7 @@ PyObject* SDBM(PyObject* self, PyObject* args)
 	hash = sdbm_hash(str);
 	if(hash < 0)
 		return Py_False;
-	return Py_BuildValue("K", index);
+	return Py_BuildValue("K", hash);
 }
 
 PyObject* KNR(PyObject* self, PyObject* args)
@@ -71,7 +71,7 @@ PyObject* KNR(PyObject* self, PyObject* args)
 	hash = k_n_r(str);
 	if(hash < 0)
 		return Py_False;
-	return Py_BuildValue("K", index);
+	return Py_BuildValue("K", hash);
 }
 
 static PyMethodDef HMeth[] = {
