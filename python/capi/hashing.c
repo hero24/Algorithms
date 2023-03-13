@@ -7,8 +7,8 @@ PyObject* SM2(PyObject* self, PyObject* args)
 	int hash;
 	if(!PyArg_ParseTuple(args, "s", &str))
 		return NULL;
-	index = sum_modulo_2(str);
-	if(index < 0)
+	hash = sum_modulo_2(str);
+	if(hash < 0)
 		return Py_False;
 	return Py_BuildValue("i", index);
 }
@@ -19,8 +19,8 @@ PyObject* SM2RS(PyObject* self, PyObject* args)
 	int hash;
 	if(!PyArg_ParseTuple(args, "s", &str))
 		return NULL;
-	index = sum_modulo_2_rshift(str);
-	if(index < 0)
+	hash = sum_modulo_2_rshift(str);
+	if(hash < 0)
 		return Py_False;
 	return Py_BuildValue("i", index);
 }
@@ -32,8 +32,8 @@ PyObject* Rmax(PyObject* self, PyObject* args)
 	int hash;
 	if(!PyArg_ParseTuple(args, "si", &str, &rmax))
 		return NULL;
-	index = Rmax(str, rmax);
-	if(index < 0)
+	hash = Rmax(str, rmax);
+	if(hash < 0)
 		return Py_False;
 	return Py_BuildValue("i", index);
 }
@@ -44,8 +44,8 @@ PyObject* DJB2(PyObject* self, PyObject* args)
 	unsigned long hash;
 	if(!PyArg_ParseTuple(args, "s", &str))
 		return NULL;
-	index = djb2(str);
-	if(index < 0)
+	hash = djb2(str);
+	if(hash < 0)
 		return Py_False;
 	return Py_BuildValue("K", index);
 }
@@ -56,8 +56,8 @@ PyObject* SDBM(PyObject* self, PyObject* args)
 	unsigned long hash;
 	if(!PyArg_ParseTuple(args, "s", &str))
 		return NULL;
-	index = sdbm_hash(str);
-	if(index < 0)
+	hash = sdbm_hash(str);
+	if(hash < 0)
 		return Py_False;
 	return Py_BuildValue("K", index);
 }
@@ -68,8 +68,8 @@ PyObject* KNR(PyObject* self, PyObject* args)
 	unsigned long hash;
 	if(!PyArg_ParseTuple(args, "s", &str))
 		return NULL;
-	index = k_n_r(str);
-	if(index < 0)
+	hash = k_n_r(str);
+	if(hash < 0)
 		return Py_False;
 	return Py_BuildValue("K", index);
 }
