@@ -25,7 +25,7 @@ PyObject* SM2RS(PyObject* self, PyObject* args)
 	return Py_BuildValue("i", index);
 }
 
-PyObject* Rmax(PyObject* self, PyObject* args)
+PyObject* RMAX(PyObject* self, PyObject* args)
 {
 	char* str;
     int rmax;
@@ -77,7 +77,7 @@ PyObject* KNR(PyObject* self, PyObject* args)
 static PyMethodDef HMeth[] = {
 	{"SM2", SM2, METH_VARARGS, "sum modulo hashing"},
     {"SM2RS", SM2RS, METH_VARARGS, "sum modulo hashing right shift"},
-    {"Rmax", Rmax, METH_VARARGS, "Rmax hashing"},
+    {"RMAX", RMAX, METH_VARARGS, "Rmax hashing"},
     {"DJB2", DJB2, METH_VARARGS, "djb2 hashing"},
     {"SDBM", SDBM, METH_VARARGS, "sdbm hashing"},
     {"KNR", KNR, METH_VARARGS, "knr hashing"},
