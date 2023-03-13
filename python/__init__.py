@@ -12,17 +12,17 @@ def _get_dirs():
                "lib",
                "algorithms"
     ]
-    dirs = {"algorithms" : "."}
+    dirs = {"hero24/algorithms" : "."}
     for _, d1, _ in walk("."):
         for d in d1:
             if d in exclude:
                 continue
-            dirs["algorithms/"+d] = d
+            dirs["hero24/algorithms/"+d] = d
     print(dirs)
     return dirs
 
 if __name__ == "__main__":
-    from distutils.core import setup
+    from distutils.core import setup, Extension
     from sys import argv
 
     argv += ['install']
@@ -34,5 +34,8 @@ if __name__ == "__main__":
       description="Python implementations of various algorithms",
       author="hero24",
       package_dir=dirs,
-      packages=packs
+      packages=packs,
+            ext_modules=[Extension("hero24/algorithms/capi/rabin_karp", ["capi/rk.c"]),
+              Extension("hero24/algorithms/capi/boyer_moore", ["capi/bm.c"]),
+              Extension("hero24/algorithms/capi/knuth_morris_pratt", ["capi/kmp.c"])]
       )
