@@ -92,7 +92,7 @@ static struct PyModuleDef HMod = {
 	HMeth
 };
 
-PyMODINIT_FUNC PyInit_boyer_moore(void)
+PyMODINIT_FUNC PyInit_hashing(void)
 {
 	return PyModule_Create(&HMod);
 }
