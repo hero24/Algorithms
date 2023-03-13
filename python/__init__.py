@@ -1,5 +1,5 @@
 """
-Many of life's failures are people who did not realize 
+Many of life's failures are people who did not realize
 how close they were to success when they gave up.
 -Thomas A. Edison
 """
@@ -12,13 +12,13 @@ exclude = ["dist",
 ]
 
 def _get_dirs(exclude):
-    from os import walk
+    from os import listdir
+    from os.path import isfile
     dirs = {"hero24/algorithms" : "."}
-    for _, d1, _ in walk("."):
-        for d in d1:
-            if d in exclude:
-                continue
-            dirs["hero24/algorithms/"+d] = d
+    for d in listdir("."):
+        if d in exclude or isfile(d):
+            continue
+        dirs["hero24/algorithms/"+d] = d
     print(dirs)
     return dirs
 
@@ -45,5 +45,5 @@ if __name__ == "__main__":
     argv += ['install']
     args["package_dir"] = _get_dirs(exclude)
     args["packages"] = [k for k in args["package_dir"]]
-    
+
     setup(**args)
