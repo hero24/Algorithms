@@ -1,8 +1,17 @@
 .PHONY : python c cpp
 all:
-        @echo "make: [python|c]"
+        @echo "make: [python|c|cpp]"
+
+ifeq ($(PYCAPI), Y)
+pycapi=capi
+endif
+
+ifeq ($(PYCPPAPI), Y)
+pycppapi=cppapi
+endif
+
 python:
-        cd python && python3 __init__.py capi  && cd ..
+        cd python && python3 __init__.py $(pycapi)  && cd ..
 
 define c_files
         cp c/hashing.h tmp/hashing.c
