@@ -1,6 +1,6 @@
-.PHONY : python c cpp
+.PHONY : python c cpp scala
 all:
-        @echo "make: [python|c|cpp]"
+        @echo "make: [python|c|cpp|scala]"
 
 ifeq ($(PYCAPI), Y)
 pycapi=capi
@@ -59,3 +59,7 @@ cpp:
         g++ -shared -o build/h24_rk.so tmp/rk.o
         g++ -shared -o build/h24_bubble_sort.so tmp/bubble_sort.o
         rm -rf tmp
+
+scala:
+        mkdir build
+        scalac scala/math/sum.scala -d build/hero24.algorithms.math.jar
