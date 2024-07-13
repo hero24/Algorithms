@@ -9,7 +9,18 @@ def roy_warshall(graph):
     is possible.
     """
     result = [[False for _ in range(len(graph))] for _ in range(len(graph))]
-    nodes = [node for node in graph.yield_connections()]
+    nodes = [[key for key in graph.yield_nodes()] for _ in graph.yield_nodes()]
+    i = 0
+    for _, key in graph.yield_connections():
+        for j in key:
+            for k in range(len(nodes[i])):
+                if nodes[i][k] == j:
+                    nodes[i][k] = True
+        for j in range(len(nodes[i])):
+            if nodes[i][j] is not True:
+                nodes[i][j] = False
+        i += 1
+
     for x in range(len(nodes)):
         for y in range(len(nodes)):
             for z in range(len(nodes)):
@@ -27,8 +38,18 @@ def floyd_warshall(graph):
     that are possible.
     """
     result = [[False for x in range(len(graph))] for _ in range(len(graph))]
-    nodes = [node for node in graph.yield_connections()]
-    print(nodes)
+    nodes = [[key for key in graph.yield_nodes()] for _ in graph.yield_nodes()]
+    i = 0
+    for nodea, key in graph.yield_connections():
+        for j in key:
+            for k in range(len(nodes[i])):
+                if nodes[i][k] == j:
+                    nodes[i][k] = graph.get_weight(nodea, j)
+        for j in range(len(nodes[i])):
+            if not isinstance(nodes[i][j], int):
+                nodes[i][j] = float('inf')
+        i += 1
+
     for x in range(len(nodes)):
         for y in range(len(nodes)):
             for z in range(len(nodes)):
