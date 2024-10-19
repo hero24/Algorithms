@@ -1,4 +1,5 @@
 from .lzw import BadCompressionError, LZW
+from .rle import RunLengthEncoding
 
 """
 The greatest glory in living lies not in never falling, 
