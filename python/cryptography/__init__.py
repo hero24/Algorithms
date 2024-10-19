@@ -5,6 +5,7 @@ from .enigma import Enigma
 from .playfair_cipher import PlayfairCipher
 from .tabula_recta import TabulaRecta
 from .vigenere import Vigenere, VigenereAutokey, VigenereAltAutokey
+from .simple import xor, ascii
 
 """
 Your time is limited, so don't waste it living someone else's life. 
@@ -25,5 +26,7 @@ __all__ = [
     "TabulaRecta",
     "Vigenere",
     "VigenereAutokey",
-    "VigenereAltAutokey"
+    "VigenereAltAutokey",
+    "xor",
+    "ascii"
 ]
